@@ -1,13 +1,13 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
 
-import DashboardScreen from '../../app/DashboardScreen';
-import BusTrackingScreen from '../../app/BusTrackingScreen';
-import CampusMapScreen from '../../app/CampusMapScreen';
-import CanteenScreen from '../../app/CanteenScreen';
-import HelplineScreen from '../../app/HelplineScreen';
-import ParkingIDScreen from '../../app/ParkingIDScreen';
+import BusTrackingScreen from "../../app/BusTrackingScreen";
+import CampusMapScreen from "../../app/CampusMapScreen";
+import CanteenScreen from "../../app/CanteenScreen";
+import DashboardScreen from "../../app/DashboardScreen";
+import HelplineScreen from "../../app/HelplineScreen";
+import ParkingIDScreen from "../../app/parking-id";
 
 export type RootStackParamList = {
   Dashboard: undefined;
