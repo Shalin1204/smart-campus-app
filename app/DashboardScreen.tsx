@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import { useRouter } from "expo-router";
+import React, { useEffect, useRef } from "react";
 import {
-  Animated, ScrollView, StatusBar,
-  StyleSheet, Text, TouchableOpacity, View,
-} from 'react-native';
-import { useRouter } from 'expo-router';
+  Animated,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 type Module = {
   id: string;
@@ -25,19 +30,37 @@ const MODULES: Module[] = [
 
 function ModuleCard({ item, index }: { item: Module; index: number }) {
   const router = useRouter();
-  const fadeAnim  = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    Animated.timing(fadeAnim, { toValue: 1, duration: 350, delay: index * 60, useNativeDriver: true }).start();
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 350,
+      delay: index * 60,
+      useNativeDriver: true,
+    }).start();
   }, []);
 
   return (
-    <Animated.View style={{ opacity: fadeAnim, transform: [{ scale: scaleAnim }] }}>
+    <Animated.View
+      style={{ opacity: fadeAnim, transform: [{ scale: scaleAnim }] }}
+    >
       <TouchableOpacity
         activeOpacity={1}
-        onPressIn={() => Animated.spring(scaleAnim, { toValue: 0.96, useNativeDriver: true }).start()}
-        onPressOut={() => Animated.spring(scaleAnim, { toValue: 1, friction: 4, useNativeDriver: true }).start()}
+        onPressIn={() =>
+          Animated.spring(scaleAnim, {
+            toValue: 0.96,
+            useNativeDriver: true,
+          }).start()
+        }
+        onPressOut={() =>
+          Animated.spring(scaleAnim, {
+            toValue: 1,
+            friction: 4,
+            useNativeDriver: true,
+          }).start()
+        }
         onPress={() => router.push(item.href as any)}
         style={styles.card}
       >
@@ -48,7 +71,7 @@ function ModuleCard({ item, index }: { item: Module; index: number }) {
           <Text style={styles.cardLabel}>{item.label}</Text>
           <Text style={styles.cardSub}>{item.subtitle}</Text>
         </View>
-        <View style={[styles.arrow, { backgroundColor: item.accent + '18' }]}>
+        <View style={[styles.arrow, { backgroundColor: item.accent + "18" }]}>
           <Text style={[styles.arrowText, { color: item.accent }]}>›</Text>
         </View>
       </TouchableOpacity>
@@ -59,7 +82,11 @@ function ModuleCard({ item, index }: { item: Module; index: number }) {
 export default function DashboardScreen() {
   const headerAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
-    Animated.timing(headerAnim, { toValue: 1, duration: 500, useNativeDriver: true }).start();
+    Animated.timing(headerAnim, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
   }, []);
 
   return (
@@ -73,29 +100,78 @@ export default function DashboardScreen() {
         </View>
       </Animated.View>
 
-      <ScrollView contentContainerStyle={styles.list} showsVerticalScrollIndicator={false}>
-        {MODULES.map((item, i) => <ModuleCard key={item.id} item={item} index={i} />)}
+      <ScrollView
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={false}
+      >
+        {MODULES.map((item, i) => (
+          <ModuleCard key={item.id} item={item} index={i} />
+        ))}
       </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:   { flex: 1, backgroundColor: '#F8F9FB' },
+  container: { flex: 1, backgroundColor: "#F8F9FB" },
 
-  header:      { paddingTop: 58, paddingHorizontal: 22, paddingBottom: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  headerTitle: { fontSize: 26, fontWeight: '800', color: '#111827', letterSpacing: -0.5 },
-  headerSub:   { fontSize: 13, color: '#9CA3AF', marginTop: 2 },
-  avatar:      { width: 42, height: 42, borderRadius: 21, backgroundColor: '#EEF2FF', alignItems: 'center', justifyContent: 'center' },
-  avatarText:  { color: '#6366F1', fontWeight: '800', fontSize: 13 },
+  header: {
+    paddingTop: 58,
+    paddingHorizontal: 22,
+    paddingBottom: 18,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  headerTitle: {
+    fontSize: 26,
+    fontWeight: "800",
+    color: "#111827",
+    letterSpacing: -0.5,
+  },
+  headerSub: { fontSize: 13, color: "#9CA3AF", marginTop: 2 },
+  avatar: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: "#EEF2FF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatarText: { color: "#6366F1", fontWeight: "800", fontSize: 13 },
 
-  list:        { paddingHorizontal: 16, paddingTop: 4, paddingBottom: 40 },
+  list: { paddingHorizontal: 16, paddingTop: 4, paddingBottom: 40 },
 
-  card:        { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFFFF', borderRadius: 16, padding: 16, marginBottom: 12, shadowColor: '#000', shadowOpacity: 0.05, shadowOffset: { width: 0, height: 2 }, shadowRadius: 8, elevation: 2 },
-  iconBox:     { width: 52, height: 52, borderRadius: 14, alignItems: 'center', justifyContent: 'center', marginRight: 14 },
-  icon:        { fontSize: 26 },
-  cardLabel:   { fontSize: 16, fontWeight: '700', color: '#111827' },
-  cardSub:     { fontSize: 13, color: '#9CA3AF', marginTop: 2 },
-  arrow:       { width: 32, height: 32, borderRadius: 10, alignItems: 'center', justifyContent: 'center' },
-  arrowText:   { fontSize: 22, fontWeight: '700', marginTop: -2 },
+  card: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  iconBox: {
+    width: 52,
+    height: 52,
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 14,
+  },
+  icon: { fontSize: 26 },
+  cardLabel: { fontSize: 16, fontWeight: "700", color: "#111827" },
+  cardSub: { fontSize: 13, color: "#9CA3AF", marginTop: 2 },
+  arrow: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  arrowText: { fontSize: 22, fontWeight: "700", marginTop: -2 },
 });
