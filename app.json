@@ -44,6 +44,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5c1fd13b-697e-4bc0-878b-2f9f2ac71741"
+      },
+      "GEMINI_API_KEY": "AIzaSyB6vw0ep-9jXlOmJDblJA45WN6lFJ0z46k"
     }
   }
 }

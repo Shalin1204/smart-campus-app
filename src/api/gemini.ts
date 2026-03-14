@@ -1,14 +1,25 @@
-import { busRoutes } from '../data/busRoutes';
+import Constants from 'expo-constants';
 import { BLOCKS } from '../data/blocks';
+import { busRoutes } from '../data/busRoutes';
 
-const GEMINI_API_KEY = 'AIzaSyB6vw0ep-9jXlOmJDblJA45WN6lFJ0z46k';
+const GEMINI_API_KEY =
+  (Constants.expoConfig?.extra as any)?.GEMINI_API_KEY ||
+  (Constants.manifest?.extra as any)?.GEMINI_API_KEY ||
+  process.env.GEMINI_API_KEY ||
+  '';
+
+const GEMINI_MODEL =
+  (Constants.expoConfig?.extra as any)?.GEMINI_MODEL ||
+  (Constants.manifest?.extra as any)?.GEMINI_MODEL ||
+  process.env.GEMINI_MODEL ||
+  'gemini-1.5-flash-latest';
 
 const GEMINI_URL =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+  `https://generativelanguage.googleapis.com/v1/models/${GEMINI_MODEL}:generateMessage`;
 
 export async function askGemini(userQuestion: string): Promise<string> {
   if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
-    return 'Gemini API key is not configured. Please add your key in src/api/gemini.ts.';
+    return 'Gemini API key is not configured. Set GEMINI_API_KEY in environment or expo extra (app.json / eas).';
   }
 
   const systemPrompt = `
@@ -31,24 +42,31 @@ Rules:
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      contents: [
+      messages: [
         {
-          role: 'user',
-          parts: [{ text: `${systemPrompt}\n\nUser: ${userQuestion}` }],
+          author: 'system',
+          content: [{ type: 'text', text: systemPrompt }],
+        },
+        {
+          author: 'user',
+          content: [{ type: 'text', text: userQuestion }],
         },
       ],
+      temperature: 0.2,
+      maxOutputTokens: 500,
     }),
   });
 
   if (!res.ok) {
     const errText = await res.text().catch(() => '');
     console.warn('Gemini error:', errText);
-    throw new Error('Gemini request failed');
+    throw new Error(`Gemini request failed (${res.status})`);
   }
 
   const data = await res.json();
   const text =
-    data?.candidates?.[0]?.content?.parts?.[0]?.text ??
+    data?.candidates?.[0]?.content?.[0]?.text ||
+    data?.output?.[0]?.content?.[0]?.text ||
     'Sorry, I could not understand that.';
   return text as string;
 }

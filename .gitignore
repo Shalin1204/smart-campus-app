@@ -36,6 +36,9 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# local app config with secret keys
+app.json
+
 app-example
 
 # generated native folders
