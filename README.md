@@ -16,6 +16,31 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start
    ```
 
+### Gemini API key (required for chatbot)
+
+1. **Get your API key**: Visit [Google AI Studio](https://makersuite.google.com/app/apikey) and create a new API key.
+
+2. **Set up environment variables**:
+   ```bash
+   # Copy the example file
+   cp .env.example .env
+   ```
+
+3. **Add your API key to `.env`** (this file is ignored by git):
+   ```env
+   GEMINI_API_KEY=your_actual_api_key_here
+   GEMINI_MODEL=gemini-1.5-flash
+   ```
+
+4. **For production builds**: Set the API key as an environment variable in your deployment platform (EAS Build, etc.):
+   ```bash
+   eas build --platform android --profile production
+   ```
+
+   Or configure it in your CI/CD environment variables.
+
+**⚠️ Security Note**: Never commit API keys to version control. The `.env` file is already in `.gitignore`.
+
 In the output, you'll find options to open the app in a
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)

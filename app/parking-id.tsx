@@ -4,14 +4,14 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
+  View,
 } from "react-native";
 
-import * as Location from "expo-location";
-import MapView, { Marker } from "react-native-maps";
-import { useRouter } from "expo-router";
 import { Picker } from "@react-native-picker/picker";
+import * as Location from "expo-location";
+import { useRouter } from "expo-router";
+import MapView, { Marker } from "react-native-maps";
 
 import { buildings } from "../src/parking/buildings";
 import { calculateDistance } from "../src/parking/distanceUtils";
@@ -37,7 +37,7 @@ export default function ParkingIDScreen() {
         selectedBuilding.lat,
         selectedBuilding.lng,
         parking.lat,
-        parking.lng
+        parking.lng,
       );
 
       if (dist < shortestDistance) {
@@ -162,7 +162,11 @@ export default function ParkingIDScreen() {
             longitudeDelta: 0.01,
           }}
         >
-          <Marker coordinate={userLocation} title="You are here" pinColor="blue" />
+          <Marker
+            coordinate={userLocation}
+            title="You are here"
+            pinColor="blue"
+          />
           <Marker coordinate={carLocation} title="Your Car" pinColor="green" />
         </MapView>
       )}
@@ -190,5 +194,80 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8F9FB",
     paddingTop: 60,
     paddingHorizontal: 20,
+  },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  backBtn: {
+    marginRight: 12,
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: "#EAEAEE",
+  },
+  backText: {
+    fontSize: 22,
+    fontWeight: "700",
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+  },
+  headerSub: {
+    fontSize: 13,
+    color: "#5C6070",
+  },
+  card: {
+    backgroundColor: "#FFF",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 20,
+    elevation: 2,
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: "600",
+    marginBottom: 8,
+  },
+  pickerBox: {
+    borderWidth: 1,
+    borderColor: "#D8DBE0",
+    borderRadius: 10,
+    overflow: "hidden",
+    marginBottom: 14,
+  },
+  button: {
+    backgroundColor: "#0E6FF5",
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    marginBottom: 10,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#FFF",
+    fontWeight: "700",
+  },
+  resultCard: {
+    backgroundColor: "#FFF",
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 16,
+  },
+  resultTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    marginBottom: 8,
+  },
+  resultText: {
+    fontSize: 14,
+    marginBottom: 4,
+  },
+  map: {
+    width: "100%",
+    height: 280,
+    borderRadius: 12,
+    marginTop: 10,
   },
 });
