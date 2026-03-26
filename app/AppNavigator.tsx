@@ -1,14 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
 
-import BusTrackingScreen from "../../app/BusTrackingScreen";
-import CampusMapScreen from "../../app/CampusMapScreen";
-import CanteenScreen from "../../app/CanteenScreen";
-import ChatbotScreen from "../../app/ChatbotScreen";
-import DashboardScreen from "../../app/DashboardScreen";
-import HelplineScreen from "../../app/HelplineScreen";
-import ParkingIDScreen from "../../app/parking-id";
-import SplashScreen from "../../app/SplashScreen";
+import BusTrackingScreen from "./BusTrackingScreen";
+import CampusMapScreen from "./CampusMapScreen";
+import CanteenScreen from "./CanteenScreen";
+import ChatbotScreen from "./ChatbotScreen";
+import DashboardScreen from "./DashboardScreen";
+import HelplineScreen from "./HelplineScreen";
+import ParkingIDScreen from "./parking-id";
+import SplashScreen from "./SplashScreen";
 
 export type RootStackParamList = {
   Splash: undefined;

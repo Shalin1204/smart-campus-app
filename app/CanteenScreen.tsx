@@ -24,7 +24,128 @@ function makeId(restaurant: string, name: string) {
   return `${restaurant}_${name}`.replace(/\s+/g, '_').toLowerCase();
 }
 
+const HR05_MENU: MenuItem[] = [
+  // Starters Veg
+  { id: makeId("hr05", "Achari Chaap Tikka"), name: "Achari Chaap Tikka", price: 200, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Masala Chaap Tikka"), name: "Masala Chaap Tikka", price: 220, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Malai Chaap Tikka"), name: "Malai Chaap Tikka", price: 250, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Haryali Paneer Tikka"), name: "Haryali Paneer Tikka", price: 250, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Achari Paneer Tikka"), name: "Achari Paneer Tikka", price: 230, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Tikka"), name: "Paneer Tikka", price: 200, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Malai Paneer Tikka"), name: "Malai Paneer Tikka", price: 250, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Mushroom Malai Tikka"), name: "Mushroom Malai Tikka", price: 250, veg: true, category: "Starters Veg", restaurant: "HR05 Food Plaza" },
+
+  // Starters Non-Veg
+  { id: makeId("hr05", "Chicken Tikka"), name: "Chicken Tikka", price: 250, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Malai Tikka"), name: "Chicken Malai Tikka", price: 300, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Haryali Tikka"), name: "Chicken Haryali Tikka", price: 300, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Kali Mirch Tikka"), name: "Chicken Kali Mirch Tikka", price: 300, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Achari Tikka"), name: "Chicken Achari Tikka", price: 300, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Tandoori Chicken (Half)"), name: "Tandoori Chicken (Half)", price: 200, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Tandoori Chicken (Full)"), name: "Tandoori Chicken (Full)", price: 400, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Afghani Chicken (Half)"), name: "Afghani Chicken (Half)", price: 300, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Afghani Chicken (Full)"), name: "Afghani Chicken (Full)", price: 600, veg: false, category: "Starters Non-Veg", restaurant: "HR05 Food Plaza" },
+
+  // Parathas
+  { id: makeId("hr05", "Aloo Paratha"), name: "Aloo Paratha", price: 60, veg: true, category: "Parathas", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Gobi Paratha"), name: "Gobi Paratha", price: 70, veg: true, category: "Parathas", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Onion Paratha"), name: "Onion Paratha", price: 70, veg: true, category: "Parathas", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Paratha"), name: "Paneer Paratha", price: 80, veg: true, category: "Parathas", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Mix Paratha"), name: "Mix Paratha", price: 100, veg: true, category: "Parathas", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Tandoori Chicken Paratha"), name: "Tandoori Chicken Paratha", price: 110, veg: false, category: "Parathas", restaurant: "HR05 Food Plaza" },
+
+  // Raita
+  { id: makeId("hr05", "Plain Raita"), name: "Plain Raita", price: 80, veg: true, category: "Raita", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Boondi Raita"), name: "Boondi Raita", price: 100, veg: true, category: "Raita", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Mix Raita"), name: "Mix Raita", price: 150, veg: true, category: "Raita", restaurant: "HR05 Food Plaza" },
+
+  // Fast Food
+  { id: makeId("hr05", "Veg Chowmein"), name: "Veg Chowmein", price: 130, veg: true, category: "Fast Food", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Chowmein"), name: "Paneer Chowmein", price: 150, veg: true, category: "Fast Food", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Chowmein"), name: "Chicken Chowmein", price: 200, veg: false, category: "Fast Food", restaurant: "HR05 Food Plaza" },
+
+  // Rice Combo
+  { id: makeId("hr05", "Rajma Chawal"), name: "Rajma Chawal", price: 150, veg: true, category: "Rice Combo", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chole Chawal"), name: "Chole Chawal", price: 120, veg: true, category: "Rice Combo", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Dal Chawal"), name: "Dal Chawal", price: 120, veg: true, category: "Rice Combo", restaurant: "HR05 Food Plaza" },
+
+  // Main Course Veg
+  { id: makeId("hr05", "Dal Makhani"), name: "Dal Makhani", price: 180, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Dal Fry"), name: "Dal Fry", price: 150, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Dal Tadka"), name: "Dal Tadka", price: 150, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Bhindi Masala"), name: "Bhindi Masala", price: 150, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Shahi Paneer"), name: "Shahi Paneer", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Kadai Paneer"), name: "Kadai Paneer", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Butter Masala"), name: "Paneer Butter Masala", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Tikka Butter Masala"), name: "Paneer Tikka Butter Masala", price: 280, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Bhurji"), name: "Paneer Bhurji", price: 280, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Do Pyaza"), name: "Paneer Do Pyaza", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Handi"), name: "Paneer Handi", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Matar Paneer"), name: "Matar Paneer", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Palak Paneer"), name: "Palak Paneer", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Aloo Palak"), name: "Aloo Palak", price: 180, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Palak Kofta"), name: "Palak Kofta", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Kali Mirch"), name: "Paneer Kali Mirch", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Lababdar"), name: "Paneer Lababdar", price: 250, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Punjabi"), name: "Paneer Punjabi", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chana Masala"), name: "Chana Masala", price: 180, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Mushroom Masala"), name: "Mushroom Masala", price: 220, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Butter Chaap"), name: "Butter Chaap", price: 200, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Malai Chaap"), name: "Malai Chaap", price: 250, veg: true, category: "Main Course", restaurant: "HR05 Food Plaza" },
+
+  // Rice
+  { id: makeId("hr05", "Plain Rice"), name: "Plain Rice", price: 70, veg: true, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Jeera Rice"), name: "Jeera Rice", price: 100, veg: true, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Veg Pulao"), name: "Veg Pulao", price: 120, veg: true, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Veg Fried Rice"), name: "Veg Fried Rice", price: 130, veg: true, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Veg Biryani"), name: "Veg Biryani", price: 140, veg: true, category: "Biryani", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Fried Rice"), name: "Paneer Fried Rice", price: 150, veg: true, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Biryani"), name: "Paneer Biryani", price: 160, veg: true, category: "Biryani", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Fried Rice"), name: "Chicken Fried Rice", price: 160, veg: false, category: "Rice", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Biryani"), name: "Chicken Biryani", price: 170, veg: false, category: "Biryani", restaurant: "HR05 Food Plaza" },
+
+  // Main Course Non-Veg
+  { id: makeId("hr05", "Butter Chicken"), name: "Butter Chicken", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Kadai Chicken"), name: "Kadai Chicken", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Lemon Chicken"), name: "Lemon Chicken", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Do Pyaza"), name: "Chicken Do Pyaza", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Tikka Masala"), name: "Chicken Tikka Masala", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Kali Mirch"), name: "Chicken Kali Mirch", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Cream Chicken"), name: "Cream Chicken", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Lababdar"), name: "Chicken Lababdar", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Handi"), name: "Chicken Handi", price: 300, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Chicken Kali Mirch (Full)"), name: "Chicken Kali Mirch (Full)", price: 600, veg: false, category: "Main Course", restaurant: "HR05 Food Plaza" },
+
+  // Eggs
+  { id: makeId("hr05", "Egg Bhurji"), name: "Egg Bhurji", price: 160, veg: false, category: "Eggs", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Egg Curry"), name: "Egg Curry", price: 200, veg: false, category: "Eggs", restaurant: "HR05 Food Plaza" },
+
+  // Breads
+  { id: makeId("hr05", "Tandoori Roti"), name: "Tandoori Roti", price: 18, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Butter Roti"), name: "Butter Roti", price: 20, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Missi Roti"), name: "Missi Roti", price: 25, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Laccha Paratha"), name: "Laccha Paratha", price: 35, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Plain Naan"), name: "Plain Naan", price: 35, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Butter Naan"), name: "Butter Naan", price: 40, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Garlic Naan"), name: "Garlic Naan", price: 70, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Paneer Naan"), name: "Paneer Naan", price: 110, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Stuff Naan"), name: "Stuff Naan", price: 90, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Kashmiri Naan"), name: "Kashmiri Naan", price: 120, veg: true, category: "Breads", restaurant: "HR05 Food Plaza" },
+
+  // Beverages
+  { id: makeId("hr05", "Sweet Lassi (Regular)"), name: "Sweet Lassi (Regular)", price: 30, veg: true, category: "Beverages", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Sweet Lassi (Large)"), name: "Sweet Lassi (Large)", price: 50, veg: true, category: "Beverages", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Butter Milk"), name: "Butter Milk", price: 30, veg: true, category: "Beverages", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Curd"), name: "Curd", price: 30, veg: true, category: "Beverages", restaurant: "HR05 Food Plaza" },
+
+  // Thali
+  { id: makeId("hr05", "Veg Thali"), name: "Veg Thali", price: 60, veg: true, category: "Thali", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Non Veg Thali"), name: "Non Veg Thali", price: 80, veg: false, category: "Thali", restaurant: "HR05 Food Plaza" },
+  { id: makeId("hr05", "Amritsari Thali"), name: "Amritsari Thali", price: 120, veg: true, category: "Thali", restaurant: "HR05 Food Plaza" }
+];
+
 const RAW_MENU: MenuItem[] = [
+  ...HR05_MENU,
   { id: makeId("queens","Chicken Biryani (Half)"), name:"Chicken Biryani (Half)", price:90, veg:false, category:"Biryani", restaurant:"Queens Court"},
   { id: makeId("queens","Chicken Biryani (Full)"), name:"Chicken Biryani (Full)", price:150, veg:false, category:"Biryani", restaurant:"Queens Court"},
   { id: makeId("queens","Egg Biryani (Half)"), name:"Egg Biryani (Half)", price:55, veg:false, category:"Biryani", restaurant:"Queens Court"},
@@ -37,8 +158,8 @@ const RAW_MENU: MenuItem[] = [
 
 const RESTAURANTS = [
   { key:'All', label:'All'},
-  { key:'Hros Food Plaza', label:'HR Food'},
-  { key:'Queens Court', label:'Queen Food'}
+  { key:'HR05 Food Plaza', label:'HR05'},
+  { key:'Queens Court', label:'Queens Court'}
 ];
 
 const CATEGORIES = ['All', ...Array.from(new Set(RAW_MENU.map(i=>i.category)))];
@@ -174,7 +295,7 @@ export default function CanteenScreen(){
 
     {/* RESTAURANT TABS */}
 
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabs}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabs} style={styles.tabsScroll}>
 
       {RESTAURANTS.map(r=>(
         <TouchableOpacity
@@ -251,11 +372,17 @@ cartIcon:{fontSize:26},
 
 search:{margin:16,backgroundColor:'#FFF',borderRadius:12,padding:12,borderWidth:1,borderColor:'#E5E7EB'},
 
+tabsScroll:{
+maxHeight:55,
+minHeight:55,
+marginBottom:10
+},
+
 tabs:{
 paddingHorizontal:16,
-paddingBottom:10,
 flexDirection:'row',
-alignItems:'center'
+alignItems:'center',
+paddingBottom: 5,
 },
 
 tab:{
