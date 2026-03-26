@@ -4,11 +4,11 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
   Alert,
 } from "react-native";
 import * as Location from "expo-location";
+import { useRouter } from "expo-router";
 import MapView, { Marker } from "react-native-maps";
 import { useRouter } from "expo-router";
 import { Picker } from "@react-native-picker/picker";
@@ -39,7 +39,7 @@ export default function ParkingIDScreen() {
         selectedBuilding.lat,
         selectedBuilding.lng,
         parking.lat,
-        parking.lng
+        parking.lng,
       );
 
       if (dist < shortestDistance) {

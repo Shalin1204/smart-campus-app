@@ -1,7 +1,7 @@
 import { calculateDistance } from "./distanceUtils";
 import { parkingAreas } from "./parkingLocations";
 
-export const suggestParking = (destination: any) => {
+export const advice = (destination: any) => {
   let bestParking = parkingAreas[0];
   let shortestDistance = Infinity;
 
