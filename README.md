@@ -83,8 +83,20 @@ Once the server is running, you can open the app using:
 ---
 
 ## 🛠️ Technology Stack
-- **Framework**: React Native + Expo (Managed Workflow)
-- **Routing**: Expo Router (File-based internal routing)
-- **Mapping & Logistics**: `react-native-maps` & `expo-location`
-- **UI Components**: Custom `StyleSheet`, `@react-native-picker/picker`, `@expo/vector-icons`
-- **AI Engine**: Google Gemini API Integration
+
+### 📱 Cross-Platform App
+- **Framework:** React Native + Expo (Managed Workflow)
+- **Routing:** Expo Router (File-based navigation)
+- **Maps & Location:** react-native-maps, expo-location
+- **UI Components:** Custom StyleSheet, @expo/vector-icons
+
+### 🍏 Native iOS Version
+- **Language:** Swift
+- **Framework:** SwiftUI / UIKit (based on implementation)
+- **Architecture:** Native iOS implementation for performance & platform-specific UX
+
+### 🤖 AI & Backend
+- **AI Engine:** Google Gemini API Integration
+
+## 📱 Download App
+[Download APK](https://github.com/your-username/repo-name/releases/download/v1.0/app.apk)
