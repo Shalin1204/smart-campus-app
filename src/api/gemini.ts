@@ -9,11 +9,13 @@ import { parkingAreas } from "../parking/parkingLocations";
 // 2. For production: Set environment variable in your deployment platform
 // 3. Get your key from: https://makersuite.google.com/app/apikey
 const GEMINI_API_KEY =
+  process.env.EXPO_PUBLIC_GEMINI_API_KEY ||
   (Constants.expoConfig?.extra as any)?.GEMINI_API_KEY ||
   (Constants.manifest?.extra as any)?.GEMINI_API_KEY ||
   process.env.GEMINI_API_KEY;
 
 const GEMINI_MODEL =
+  process.env.EXPO_PUBLIC_GEMINI_MODEL ||
   (Constants.expoConfig?.extra as any)?.GEMINI_MODEL ||
   (Constants.manifest?.extra as any)?.GEMINI_MODEL ||
   process.env.GEMINI_MODEL ||

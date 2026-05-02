@@ -1,18 +1,18 @@
+import { Ionicons } from "@expo/vector-icons";
+import { Picker } from "@react-native-picker/picker";
+import * as Location from "expo-location";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
+  Alert,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
-  Alert,
+  View,
 } from "react-native";
-import * as Location from "expo-location";
-import { useRouter } from "expo-router";
-import MapView, { Marker } from "react-native-maps";
-import { useRouter } from "expo-router";
-import { Picker } from "@react-native-picker/picker";
-import { Ionicons } from "@expo/vector-icons";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { buildings } from "../src/parking/buildings";
@@ -158,6 +158,7 @@ export default function ParkingIDScreen() {
           <View style={styles.mapContainer}>
             <MapView
               style={styles.map}
+              provider={PROVIDER_GOOGLE}
               showsUserLocation={true}
               initialRegion={{
                 latitude: (userLocation.latitude + carLocation.latitude) / 2,
