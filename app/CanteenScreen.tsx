@@ -356,21 +356,21 @@ export default function CanteenScreen(){
 
 const styles = StyleSheet.create({
 
-container:{flex:1,backgroundColor:'#F8F9FB'},
+container:{flex:1,backgroundColor:'#F3F4F6'},
 
 header:{paddingTop:54,paddingHorizontal:16,paddingBottom:10,flexDirection:'row',alignItems:'center'},
 
-backBtn:{width:36,height:36,borderRadius:10,backgroundColor:'#EFEFEF',alignItems:'center',justifyContent:'center',marginRight:12},
+backBtn:{width:36,height:36,borderRadius:10,backgroundColor:'#efefef78',alignItems:'center',justifyContent:'center',marginRight:12},
 
-backText:{fontSize:22,fontWeight:'600'},
+backText:{fontSize:22,fontWeight:'600',color:'#111827'},
 
-headerTitle:{fontSize:24,fontWeight:'800'},
+headerTitle:{fontSize:24,fontWeight:'800',color:'#111827'},
 
-headerSub:{fontSize:12,color:'#9CA3AF'},
+headerSub:{fontSize:12,color:'#6B7A8D'},
 
 cartIcon:{fontSize:26},
 
-search:{margin:16,backgroundColor:'#FFF',borderRadius:12,padding:12,borderWidth:1,borderColor:'#E5E7EB'},
+search:{margin:16,backgroundColor:'#FFF',borderRadius:12,padding:12,borderWidth:1,borderColor:'#E5E7EB',color:'#111827'},
 
 tabsScroll:{
 maxHeight:55,
@@ -422,16 +422,17 @@ backgroundColor:'#F0FDF4'
 
 vegToggleText:{
 fontSize:13,
-marginLeft:4
+marginLeft:4,
+color:'#111827'
 },
 
 menuList:{paddingHorizontal:16},
 
 catHeader:{flexDirection:'row',justifyContent:'space-between',marginTop:16},
 
-catTitle:{fontSize:15,fontWeight:'700'},
+catTitle:{fontSize:15,fontWeight:'700',color:'#111827'},
 
-catCount:{fontSize:12,color:'#9CA3AF'},
+catCount:{fontSize:12,color:'#6B7280'},
 
 menuCard:{
 flexDirection:'row',
@@ -457,7 +458,7 @@ height:7,
 borderRadius:4
 },
 
-itemName:{fontSize:14,fontWeight:'600'},
+itemName:{fontSize:14,fontWeight:'600',color:'#111827'},
 
 itemPrice:{fontSize:13,color:'#FF6B35',fontWeight:'700',marginTop:2},
 
